@@ -4,14 +4,27 @@ class Rental
 
   def initialize(bike)
     @bike = bike
+    @luggage = luggage
   end
 
   def price
-    self.bike.price + self.bike.luggage.items.count * 10
+    bike_price + bike_weight * 2 + luggage_weight * 2
   end
 
   def weight
-    self.bike.weight + self.bike.luggage.items.count
+    bike_weight + luggage_weight
+  end
+
+  def bike_price
+    bike.price
+  end
+
+  def bike_weight
+    bike.weight
+  end
+
+  def lugagge_weight
+    luggage.weight
   end
 
 end
